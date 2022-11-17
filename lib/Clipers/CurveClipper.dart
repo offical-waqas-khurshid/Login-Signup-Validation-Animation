@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 
@@ -7,17 +6,14 @@ class UserCurveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     // TODO: implement getClip
     var path = Path();
-    path.lineTo(0, size.height);
-    var firstStart =  Offset(size.width/4 , size.height - 0.5);
-    path.moveTo(size.width/2, 0);
-    var firstEnd = Offset(size.width/2.25, size.height);
-    path.quadraticBezierTo(firstStart.dx, firstEnd.dy, firstEnd.dx, firstEnd.dy);
+    path.moveTo(0, size.height-150);
+   path.quadraticBezierTo(size.width/2, 0, size.width, size.height* 0.5);
+   path.lineTo(size.width, size.height);
+   path.lineTo(0, size.height);
+   path.lineTo(0, size.height *0.5);
 
-      var secondStart = Offset(size.width - (size.width / 3.24), size.height -105);
-      var secondEnd = Offset(size.width, size.height - 10);
-      path.quadraticBezierTo(secondStart.dx, secondStart.dy, secondEnd.dx, secondEnd.dy);
-       path.lineTo(size.width, 0);
-       path.close();
+
+
     //
     // // path.lineTo(0.0, size.width - 30);
     // //

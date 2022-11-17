@@ -31,8 +31,26 @@ class LoginScreen extends StatelessWidget {
             ),
            ClipPath(
              clipper: UserCurveClipper(),
-             child: Container(color: Colors.black,
-             height: 200, width: 200,),
+             child: AnimatedCrossFade(
+               firstChild: Stack(
+                 children: [
+                   Container(color: Colors.grey,
+                     height: 270, width: 300,),
+                   Container(color: Colors.greenAccent,
+                     height: 150, width: 300,),
+                   Container(color: Colors.yellow,
+                     height: 100, width: 300,),
+                 ],
+               ),
+               secondChild: Stack(
+                children: [
+                  Container(color: Colors.black,
+                    height: 270, width: 300,),
+                ],
+               ),
+               crossFadeState: CrossFadeState.showFirst,
+               duration: const Duration(milliseconds: 300),
+             ),
            ),
           ],
         ),
