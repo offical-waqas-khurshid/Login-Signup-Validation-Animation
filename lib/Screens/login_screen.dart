@@ -1,12 +1,18 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:login_signup_with_validations/Clipers/CurveClipper.dart';
+import 'package:sizer/sizer.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
-
+   LoginScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final  mediaQuery = MediaQuery.of(context).size;
+     var  height = mediaQuery.height;
+     var  width = mediaQuery.width;
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -15,11 +21,21 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          Expanded(flex: 40, child: Image.asset('assets/images/graph.png')),
-          Expanded(flex: 40, child: Image.asset('assets/images/graph.png')),
-        ],
+      body: Center(
+        child: Column(
+          children: [
+            AnimatedCrossFade( crossFadeState: CrossFadeState.showFirst
+                 ,firstChild: Image.asset('assets/images/graph.png', height: height * 0.4,),
+                 secondChild:  const  Text(''),
+                 duration: const Duration(milliseconds: 600),
+            ),
+           ClipPath(
+             clipper: UserCurveClipper(),
+             child: Container(color: Colors.black,
+             height: 200, width: 200,),
+           ),
+          ],
+        ),
       ),
     );
   }
