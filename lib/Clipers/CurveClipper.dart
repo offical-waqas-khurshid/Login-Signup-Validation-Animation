@@ -6,8 +6,8 @@ class UserCurveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     // TODO: implement getClip
     var path = Path();
-    path.moveTo(0, size.height-150);
-   path.quadraticBezierTo(size.width/2, 0, size.width, size.height* 0.5);
+    path.moveTo(0, size.height * 0.4);
+   path.quadraticBezierTo(size.width/2, 0, size.width, size.height* 0.4);
    path.lineTo(size.width, size.height);
    path.lineTo(0, size.height);
    path.lineTo(0, size.height *0.5);

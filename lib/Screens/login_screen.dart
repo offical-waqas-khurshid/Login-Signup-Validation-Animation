@@ -27,19 +27,40 @@ class LoginScreen extends StatelessWidget {
               crossFadeState: CrossFadeState.showFirst,
               firstChild: Image.asset(
                 'assets/images/graph.png',
-                height: height * 0.4,
+                height: height * 0.3,
               ),
               secondChild: const Text(''),
               duration: const Duration(milliseconds: 600),
             ),
-            ClipPath(
-              clipper: UserCurveClipper(),
-              child: Container(
-                color: Colors.grey,
-                height: 300,
-                width: 300,
-              ),
+            Stack(
+              children: [
+                ClipPath(
+                  clipper: UserCurveClipper(),
+                  child: Container(
+                    color: Colors.black.withOpacity(0.1),
+                    height: height * 0.5,
+                    width: width * 0.999,
+                  ),
+                ),
+                ClipPath(
+                  clipper: UserCurveClipper(),
+                  child: Container(
+                    color: Colors.black.withOpacity(0.1),
+                    height: height * 0.2,
+                    width: width * 0.999,
+                  ),
+                ),
+                ClipPath(
+                  clipper: UserCurveClipper(),
+                  child: Container(
+                    color: Colors.blue,
+                    height: height * 0.4,
+                    width: width * 0.999,
+                  ),
+                ),
+              ],
             ),
+
           ],
         ),
       ),
