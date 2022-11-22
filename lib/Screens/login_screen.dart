@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:login_signup_with_validations/Clipers/CurveClipper.dart';
 import 'package:sizer/sizer.dart';
 
+import '../Utils/color_codes.dart';
+
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
@@ -37,15 +39,18 @@ class LoginScreen extends StatelessWidget {
                 ClipPath(
                   clipper: UserCurveClipper(),
                   child: Container(
-                    color: Colors.black.withOpacity(0.1),
-                    height: height * 0.5,
+                    color: ColorSelected.lastContainer,
+                    height: height * 0.4,
                     width: width * 0.999,
                   ),
                 ),
+                Positioned( left: 200,child: Container(
+                  color: Colors.blue,
+                )),
                 ClipPath(
                   clipper: UserCurveClipper(),
                   child: Container(
-                    color: Colors.black.withOpacity(0.1),
+                    color: ColorSelected.mainContainer,
                     height: height * 0.2,
                     width: width * 0.999,
                   ),
@@ -53,8 +58,8 @@ class LoginScreen extends StatelessWidget {
                 ClipPath(
                   clipper: UserCurveClipper(),
                   child: Container(
-                    color: Colors.blue,
-                    height: height * 0.4,
+                    color: ColorSelected.bottomContainer,
+                    height: height * 0.6,
                     width: width * 0.999,
                   ),
                 ),
